@@ -49,8 +49,8 @@ public class PlayerDamage : MonoBehaviour
         {
             var sequence = DOTween.Sequence();
 
-            //sequence.Append(this._renderer.material.DOColor(Color.red, invincibleTime));
-            //sequence.Append(this._renderer.material.DOColor(Color.white, invincibleTime));
+            sequence.Append(this._renderer.material.DOColor(Color.red, invincibleTime));
+            sequence.Append(this._renderer.material.DOColor(Color.white, invincibleTime));
 
             sequence.Play().OnStart(() => { invincible = true; }).SetLoops(3).OnComplete(() => { invincible = false; });
         }

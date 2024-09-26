@@ -24,11 +24,17 @@ public class Stone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
+
+
         rig.MovePosition(rig.position + transform.TransformDirection(new Vector3(0,0,1)) * speed * Time.deltaTime);
 
-        //transform.localRotation *= Quaternion.FromToRotation()
+        this.transform.Rotate(60.0f, 0.0f, 0.0f,Space.World);
 
     }
+
+    void RotMove()
+    {
+        this.transform.DORotate(Vector3.right * 180f, 60f);
+    }
+
 }
