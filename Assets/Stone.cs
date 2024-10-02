@@ -28,7 +28,7 @@ public class Stone : MonoBehaviour
 
         rig.MovePosition(rig.position + transform.TransformDirection(new Vector3(0,0,1)) * speed * Time.deltaTime);
 
-        this.transform.Rotate(60.0f, 0.0f, 0.0f,Space.World);
+        //this.transform.Rotate(60.0f, 0.0f, 0.0f,Space.World);
 
     }
 
