@@ -27,6 +27,8 @@ public class Player_Logic : MonoBehaviour
     //ジャンプ力
     public float jumpPower;
 
+    private float LongPushTime = 0.5f; // 長押しに必要な時間
+
     public Animator animator;
 
     private Vector3 Player_Pos;
@@ -67,23 +69,7 @@ public class Player_Logic : MonoBehaviour
         Horizontal_Rotate();
     }
 
-    void Jump()
-    {
-        if (grounded == true)
-        {
-            if (Input.GetButtonDown("Jump"))
-            {
-                animator.SetBool("jump", true);
-                grounded = false;
-                Rig.AddForce(transform.up * jumpPower * 100);
-            }
-            else
-            {
-                animator.SetBool("jump", false);
-            }
-        }
-
-    }
+   
 
     private void OnCollisionEnter(Collision other)// 他オブジェクトに触れた時の処理
     {
@@ -121,9 +107,51 @@ public class Player_Logic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Jump();
-
-        //Debug.DrawRay(transform.position, Vector3.down, Color.blue);
+       
 
     }
+
+    void JumpManager()
+    {
+        if (grounded == true)
+        {
+            //if (Input.GetButtonDown("Jump"))
+            //{
+            //    animator.SetBool("jump", true);
+            //    grounded = false;
+            //    Rig.AddForce(transform.up * jumpPower * 100);
+            //}
+            //else
+            //{
+            //    animator.SetBool("jump", false);
+            //}
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Invoke(nameof(LongJump), LongPushTime);
+            }
+            else if (Input.GetKeyUp(KeyCode.Space) && IsInvoking(nameof(LongJump)))
+            {
+                CancelInvoke(nameof(LongJump));
+                ShortJump();
+            }
+
+
+        }
+
+    }
+
+    void LongJump()
+    {
+        grounded = false;
+        Rig.AddForce(transform.up * jumpPower * 200);
+    }
+
+    void ShortJump()
+    {
+        animator.SetBool("jump", true);
+        grounded = false;
+        Rig.AddForce(transform.up * jumpPower * 100);
+    }
+
 }
