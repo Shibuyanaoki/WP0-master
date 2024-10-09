@@ -22,12 +22,15 @@ public class Player_Logic : MonoBehaviour
     public Rigidbody Rig = null;
 
     //地面に着地しているか判定する変数
+    [SerializeField]
     public bool grounded;
 
     //ジャンプ力
     public float jumpPower;
 
-    private float LongPushTime = 0.5f; // 長押しに必要な時間
+    private float LongPushTime = 2.0f; // 長押しに必要な時間
+
+    private bool doubleJump = false;
 
     public Animator animator;
 
@@ -69,7 +72,7 @@ public class Player_Logic : MonoBehaviour
         Horizontal_Rotate();
     }
 
-   
+
 
     private void OnCollisionEnter(Collision other)// 他オブジェクトに触れた時の処理
     {
@@ -107,7 +110,8 @@ public class Player_Logic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
+        JumpManager();
 
     }
 
@@ -134,24 +138,34 @@ public class Player_Logic : MonoBehaviour
             {
                 CancelInvoke(nameof(LongJump));
                 ShortJump();
+               
             }
-
-
         }
-
     }
 
     void LongJump()
     {
-        grounded = false;
+        Debug.Log("溜めのジャンプ");
+        //grounded = false;
         Rig.AddForce(transform.up * jumpPower * 200);
+        grounded = false;
+
     }
 
     void ShortJump()
     {
+        Debug.Log("普通のジャンプ");
         animator.SetBool("jump", true);
-        grounded = false;
         Rig.AddForce(transform.up * jumpPower * 100);
+        grounded = false;
+        doubleJump = true;
+
+        if(Input.GetKeyDown(KeyCode.Space) || doubleJump == true)
+        {
+            Debug.Log("普通のジャンプ");
+            Rig.AddForce(transform.up * jumpPower * 100);
+        }
+
     }
 
 }
