@@ -130,11 +130,11 @@ public class Player_Logic : MonoBehaviour
             //    animator.SetBool("jump", false);
             //}
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("jump"))
             {
                 Invoke(nameof(LongJump), LongPushTime);
             }
-            else if (Input.GetKeyUp(KeyCode.Space) && IsInvoking(nameof(LongJump)))
+            else if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonDown("jump") && IsInvoking(nameof(LongJump)))
             {
                 CancelInvoke(nameof(LongJump));
                 ShortJump();
@@ -160,7 +160,7 @@ public class Player_Logic : MonoBehaviour
         grounded = false;
         doubleJump = true;
 
-        if(Input.GetKeyDown(KeyCode.Space) || doubleJump == true)
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("jump") || doubleJump == true)
         {
             Debug.Log("ïÅí ÇÃÉWÉÉÉìÉv");
             Rig.AddForce(transform.up * jumpPower * 100);
