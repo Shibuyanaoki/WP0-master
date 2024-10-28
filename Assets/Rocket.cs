@@ -69,7 +69,7 @@ public class Rocket : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             text.SetActive(false);
         }
@@ -78,6 +78,6 @@ public class Rocket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

@@ -164,6 +164,7 @@ public class Player_Logic : MonoBehaviour
         {
             Debug.Log("•’Ê‚ÌƒWƒƒƒ“ƒv");
             Rig.AddForce(transform.up * jumpPower * 100);
+            doubleJump = false;
         }
 
     }
