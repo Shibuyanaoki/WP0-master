@@ -10,6 +10,7 @@ TagManager:
   - Button
   - Rocket
   - Stone
+  - Floor
   layers:
   - Default
   - TransparentFX
