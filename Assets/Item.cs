@@ -12,6 +12,8 @@ public class Item : MonoBehaviour
         ID = id;
     }
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
