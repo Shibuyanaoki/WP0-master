@@ -130,11 +130,11 @@ public class Player_Logic : MonoBehaviour
             //    animator.SetBool("jump", false);
             //}
 
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("jump"))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
             {
                 Invoke(nameof(LongJump), LongPushTime);
             }
-            else if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonDown("jump") && IsInvoking(nameof(LongJump)))
+            else if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonDown("Jump") && IsInvoking(nameof(LongJump)))
             {
                 CancelInvoke(nameof(LongJump));
                 ShortJump();
