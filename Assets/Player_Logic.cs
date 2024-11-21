@@ -155,12 +155,12 @@ public class Player_Logic : MonoBehaviour
     void ShortJump()
     {
         Debug.Log("普通のジャンプ");
-        animator.SetBool("jump", true);
+        animator.SetBool("Jump", true);
         Rig.AddForce(transform.up * jumpPower * 100);
         grounded = false;
         doubleJump = true;
 
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("jump") || doubleJump == true)
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump") || doubleJump == true)
         {
             Debug.Log("普通のジャンプ");
             Rig.AddForce(transform.up * jumpPower * 100);

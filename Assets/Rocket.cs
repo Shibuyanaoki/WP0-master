@@ -61,7 +61,7 @@ public class Rocket : MonoBehaviour
 
                     isPhase = true;
 
-                    cameraController.StartPosition();
+                    //cameraController.StartPosition();
                 }
             }
         }

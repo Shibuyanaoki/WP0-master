@@ -75,14 +75,4 @@ public class Enemy_Logic : MonoBehaviour
         transform.position += moveDirection * moveSpeed * Time.deltaTime;
     }
 
-    //void ApplyGravity()
-    //{
-    //    // ˜f¯‚Ì’†S•ûŒü‚ğŒvZ
-    //    Vector3 gravityDirection = (transform.position - planet.position).normalized;
-
-    //    // “G‚Ì‰º•ûŒü‚ğ˜f¯‚Ì’†S‚ÉŒü‚¯‚é
-    //    Quaternion targetRotation = Quaternion.FromToRotation(transform.up, gravityDirection) * transform.rotation;
-    //    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-    //}
-
 }
