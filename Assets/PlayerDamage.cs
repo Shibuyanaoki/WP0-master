@@ -10,7 +10,7 @@ public class PlayerDamage : MonoBehaviour
 
     /// <summary> ƒ‚ƒfƒ‹‚ÌRenderer </summary>
     [SerializeField]
-    private Renderer _renderer;
+    private Renderer renderer;
 
     [SerializeField]
     private bool invincible = false;
@@ -29,7 +29,7 @@ public class PlayerDamage : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Stone")
+        if (collision.gameObject.tag == "Enemy")
         {
 
             if (invincible == false)
@@ -47,12 +47,7 @@ public class PlayerDamage : MonoBehaviour
     {
         if ((HP != 0))
         {
-            var sequence = DOTween.Sequence();
-
-            sequence.Append(this._renderer.material.DOColor(Color.red, invincibleTime));
-            sequence.Append(this._renderer.material.DOColor(Color.white, invincibleTime));
-
-            sequence.Play().OnStart(() => { invincible = true; }).SetLoops(3).OnComplete(() => { invincible = false; });
+           
         }
     }
 
