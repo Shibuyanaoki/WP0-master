@@ -441,11 +441,11 @@ Transform:
   m_GameObject: {fileID: 1883942183}
   serializedVersion: 2
   m_LocalRotation: {x: 0.12796348, y: -0.0122564295, z: 0.001581499, w: 0.99170196}
-  m_LocalPosition: {x: 0.074, y: 7.152, z: -1.797}
+  m_LocalPosition: {x: -0.19, y: 1.04, z: -1.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 37362202841999949}
   m_LocalEulerAnglesHint: {x: 14.705, y: -1.416, z: 0}
 --- !u!114 &1883942187
 MonoBehaviour:
@@ -460,10 +460,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPlayerObject: {fileID: 851017692698390775}
-  offset: {x: 0, y: 3, z: -4}
-  followSpeed: 0.1
-  rotationSpeed: 20
-  distance: 6
+  offset: {x: 0, y: 2, z: -5}
+  followSpeed: 5
+  rotationSpeed: 5
+  distance: 5
   maxForwardOffset: 0.5
 --- !u!1 &1933873381
 GameObject:
@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 1933873387}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -587,7 +587,7 @@ Transform:
   m_GameObject: {fileID: 1933873381}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.73, z: -3.98}
+  m_LocalPosition: {x: 1.5, y: 9.73, z: -3.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -664,6 +664,7 @@ Transform:
   m_Children:
   - {fileID: 2277108205577604302}
   - {fileID: 3661524976281608846}
+  - {fileID: 1883942186}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &43948722640409158
@@ -727,6 +728,7 @@ GameObject:
   - component: {fileID: 7444345785223931565}
   - component: {fileID: 7444345785223931563}
   - component: {fileID: 7444345785223931566}
+  - component: {fileID: 7444345785223931567}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1687,6 +1689,22 @@ MonoBehaviour:
   grounded: 0
   jumpPower: 1
   animator: {fileID: 7444345785223931562}
+--- !u!114 &7444345785223931567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851017692698390775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03a43a0a8ad6c8478704fb563f4b098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer: {fileID: 6236887091743256707}
+  invincible: 0
+  invincibleTime: 0.5
+  HP: 3
 --- !u!1 &8112687425656599371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1853,6 +1871,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 163250769}
   - {fileID: 37362202841999949}
-  - {fileID: 1883942186}
   - {fileID: 1933873386}
   - {fileID: 435737706}
